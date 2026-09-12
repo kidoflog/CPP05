@@ -6,7 +6,7 @@
 #    By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/12 16:22:21 by kkido             #+#    #+#              #
-#    Updated: 2026/09/12 17:54:38 by kkido            ###   ########.fr        #
+#    Updated: 2026/09/12 18:29:23 by kkido            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ RESET   = \033[0m
 all: $(NAME)
 
 
-$(NAME):$(LIB) $(OBJS)
+$(NAME):$(OBJS)
 	@echo "$(GREEN)[INFO]$(CYAN) Building $(WHITE)$(NAME)...$(RESET)"
 	@$(CXX) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)[OK]$(BLUE) Build completed!$(RESET)"
