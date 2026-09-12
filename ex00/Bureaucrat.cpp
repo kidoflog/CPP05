@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:01:27 by kkido             #+#    #+#             */
-/*   Updated: 2026/09/12 19:09:39 by kkido            ###   ########.fr       */
+/*   Updated: 2026/09/12 20:02:59 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 #include <string>
 
-Bureaucrat::Bureaucrat() : grade(75), name("anonymous") {
+Bureaucrat::Bureaucrat() : name("anonymous"), grade(75) {
 }
 
-Bureaucrat::Bureaucrat(const int init_grade, const std::string& init_name)
-    : grade(init_grade), name(init_name) {
+Bureaucrat::Bureaucrat(const std::string& initName, const int initGrade)
+    : name(initName), grade(initGrade) {
   gradeCheck(grade);
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& src)
-    : grade(src.grade), name(src.name) {
+    : name(src.name), grade(src.grade) {
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& src) {
@@ -71,8 +71,8 @@ void Bureaucrat::gradeCheck(int grade) {
   }
 }
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bureaucrat) {
-  os << Bureaucrat.getName() << ", bureaucrat grade " << Bureaucrat.getGrade()
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
+  os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()
      << ".";
   return os;
 }

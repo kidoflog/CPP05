@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:01:32 by kkido             #+#    #+#             */
-/*   Updated: 2026/09/12 18:01:24 by kkido            ###   ########.fr       */
+/*   Updated: 2026/09/12 20:02:57 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class Bureaucrat {
  public:
   Bureaucrat();
-  Bureaucrat(const int init_grade, const std::string& init_name);
+  Bureaucrat(const std::string& initName, const int initGrade);
   Bureaucrat(const Bureaucrat& src);
   Bureaucrat& operator=(const Bureaucrat& src);
   ~Bureaucrat();
@@ -38,10 +38,10 @@ class Bureaucrat {
 
  private:
   void gradeCheck(int grade);
-  int grade;
   const std::string name;
+  int grade;
 };
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& Bureaucrat);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 
 #endif

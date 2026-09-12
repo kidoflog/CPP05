@@ -16,30 +16,30 @@
 
 int main() {
   std::cout << "--- default constructer test ---" << std::endl;
-  Bureaucrat Alice(90, "Alice");
+  Bureaucrat Alice("Alice", 90);
   std::cout << Alice << std::endl;
   try {
-    Bureaucrat Bob(0, "Bob");
+    Bureaucrat Bob("Bob", 0);
   } catch (const Bureaucrat::GradeTooHighException&) {
     std::cout << "catch GradeTooHighException." << std::endl;
   }
   try {
-    Bureaucrat Bob(0, "Bob");
+    Bureaucrat Bob("Bob", 0);
   } catch (const std::exception& e) {
     std::cout << "catch std::exception& e." << std::endl;
   }
   try {
-    Bureaucrat Bob(151, "Bob");
+    Bureaucrat Bob("Bob", 151);
   } catch (const Bureaucrat::GradeTooLowException&) {
     std::cout << "catch GradeLowHighException." << std::endl;
   }
   try {
-    Bureaucrat Bob(151, "Bob");
+    Bureaucrat Bob("Bob", 151);
   } catch (const std::exception& e) {
     std::cout << "catch std::exception& e." << std::endl;
   }
-  Bureaucrat Top(1, "Top");
-  Bureaucrat Bottom(150, "Bottom");
+  Bureaucrat Top("Top", 1);
+  Bureaucrat Bottom("Bottom", 150);
   std::cout << "--- standard increment decrement test ---" << std::endl;
   std::cout << Alice << std::endl;
   std::cout << "--- incrementGrade() ---" << std::endl;
