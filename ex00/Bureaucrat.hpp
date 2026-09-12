@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:01:32 by kkido             #+#    #+#             */
-/*   Updated: 2026/08/08 17:32:18 by kkido            ###   ########.fr       */
+/*   Updated: 2026/09/12 18:01:24 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,15 @@ class Bureaucrat {
   void decrementGrade();
   class GradeTooHighException : public std::exception {
    public:
-    virtual const char* what() const throw() {
-      return "Grade is too high!";
-    }
+    virtual const char* what() const throw();
   };
   class GradeTooLowException : public std::exception {
-    virtual const char* what() const throw() {
-      return "Grade is too low!";
-    }
+   public:
+    virtual const char* what() const throw();
   };
 
  private:
+  void gradeCheck(int grade);
   int grade;
   const std::string name;
 };

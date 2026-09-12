@@ -6,13 +6,13 @@
 #    By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/12 16:22:21 by kkido             #+#    #+#              #
-#    Updated: 2026/08/08 15:03:53 by kkido            ###   ########.fr        #
+#    Updated: 2026/09/12 17:54:38 by kkido            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bureaucrat
 
-SRCS = main.cpp bureaaucrat.cpp
+SRCS = main.cpp Bureaucrat.cpp
 
 OBJDIR = objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
