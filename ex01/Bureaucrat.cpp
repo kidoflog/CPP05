@@ -6,13 +6,15 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/08 15:01:27 by kkido             #+#    #+#             */
-/*   Updated: 2026/09/12 20:05:39 by kkido            ###   ########.fr       */
+/*   Updated: 2026/09/13 18:04:11 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 #include <string>
+
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : name("anonymous"), grade(75) {
 }
@@ -75,4 +77,20 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
   os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()
      << ".";
   return os;
+}
+
+void Bureaucrat::signForm(Form& form) {
+  try {
+    form.beSigned(*this);
+  } catch (const Form::FormAlreadySignedException& e) {
+    std::cout << e.what() << std::endl;
+    return;
+  } catch (const Form::GradeTooLowException& e) {
+    std::cout << "Bureaucrat " << this->name
+              << "'s grade is too low for sign to Form \"" << form.getName()
+              << "\"." << std::endl;
+    return;
+  }
+  std::cout << "Bureaucrat " << this->name << " signed Form \""
+            << form.getName() << "\"." << std::endl;
 }

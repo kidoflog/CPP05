@@ -6,16 +6,17 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/12 19:35:12 by kkido             #+#    #+#             */
-/*   Updated: 2026/09/12 20:15:21 by kkido            ###   ########.fr       */
+/*   Updated: 2026/09/13 17:48:57 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
+#include <exception>
 #include <iostream>
 #include <string>
 
-class Bureauctrat;
+class Bureaucrat;
 
 class Form {
  public:
@@ -38,8 +39,13 @@ class Form {
    public:
     virtual const char* what() const throw();
   };
+  class FormAlreadySignedException : public std::exception {
+   public:
+    virtual const char* what() const throw();
+  };
 
  private:
+  void gradeCheck(int grade);
   const std::string name;
   bool isSigned;
   const int gradeToSign;
