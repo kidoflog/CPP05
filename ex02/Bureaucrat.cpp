@@ -108,7 +108,7 @@ void Bureaucrat::executeForm(const AForm& form) const {
               << "\"." << std::endl;
     return;
   } catch (const ShrubberyCreationForm::FileCanNotOpenException& e) {
-    std::cerr << e.what() << std::endl;
+    std::cout << e.what() << std::endl;
     return;
   }
   std::cout << "Bureaucrat " << this->name << " executed Form \""
